@@ -82,30 +82,30 @@ const http = require('http');
 const url = require('url');
 // Function to add leading zero to numbers less than 10
 function zeroFill(i) {
-return (i < 10 ? '0' : '') + i;
+    return (i < 10 ? '0' : '') + i;
 }
 // Function to format the current date and time
 function now() {
-var d = new Date();
-return {
-year: d.getFullYear(),
-month: zeroFill(d.getMonth() + 1),
-date: zeroFill(d.getDate()),
-hour: zeroFill(d.getHours()),
-minute: zeroFill(d.getMinutes())
-};
+    var d = new Date();
+    return {
+    year: d.getFullYear(),
+    month: zeroFill(d.getMonth() + 1),
+    date: zeroFill(d.getDate()),
+    hour: zeroFill(d.getHours()),
+    minute: zeroFill(d.getMinutes())
+    };
 }
 // Function to parse time into hour, minute, and second
 function parsetime(time) {
-return {
-hour: time.getHours(),
-minute: time.getMinutes(),
-second: time.getSeconds()
-};
+  return {
+    hour: time.getHours(),
+    minute: time.getMinutes(),
+    second: time.getSeconds()
+  };
 }
 // Function to get UNIX epoch time
 function unixtime(time) {
-return { unixtime: time.getTime() };
+  return { unixtime: time.getTime() };
 }
 // Create an instance of the HTTP server to handle HTTP requests
 let server = http.createServer((req, res) => {
@@ -113,30 +113,30 @@ const parsedUrl = url.parse(req.url, true);
 const time = new Date(parsedUrl.query.iso);
 let result;
 if (req.url === '/api/currenttime') {
-result = now();
-} else if (/^\/api\/parsetime/.test(req.url)) {
-result = parsetime(time);
-} else if (/^\/api\/unixtime/.test(req.url)) {
-result = unixtime(time);
-} else {
-res.writeHead(200, { 'Content-Type': 'text/plain' });
-const nowObj = now();
-result = `${nowObj.year}-${nowObj.month}-${nowObj.date}
-${nowObj.hour}:${nowObj.minute}`;
-//return;
-}
-if (result) {
-res.writeHead(200, { 'Content-Type': 'application/json' });
-res.end(JSON.stringify(result) + '\n');
-} else {
-res.writeHead(404);
-res.end();
-}
+    result = now();
+  } else if (/^\/api\/parsetime/.test(req.url)) {
+    result = parsetime(time);
+  } else if (/^\/api\/unixtime/.test(req.url)) {
+    result = unixtime(time);
+  } else {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    const nowObj = now();
+    result = `${nowObj.year}-${nowObj.month}-${nowObj.date}
+    ${nowObj.hour}:${nowObj.minute}`;
+    //return;
+  }
+  if (result) {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(result) + '\n');
+  } else {
+    res.writeHead(404);
+    res.end();
+  }
 });
 // Start the server listening on the port provided on the command line
 server.listen(Number(process.argv[2]), () => {
-console.log('Node server running on http://localhost:' + process.argv[2] + 
-'\n');
+    console.log('Node server running on http://localhost:' + process.argv[2] + 
+    '\n');
 });
 ```
  
