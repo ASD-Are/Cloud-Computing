@@ -172,4 +172,4 @@ Summary of the project providing a practical introduction to building a basic HT
 - [Google_Slide](https://docs.google.com/presentation/d/1b0ut8mXSFFFxNoyJVyTjP5RGjOcH3MT4ESJTr4nT23w/edit?usp=sharing)
 
 # Appendix:
-- [Git_Hub](https://github.com/ASD-Are/Cloud-Computing/tree/main/JavaScript/Time_Server_Nodejs)
+- [Git_Hub](https://github.com/ASD-Are/Cloud-Computing/blob/main/JavaScript/Time_Server_Nodejs/timeServer.js)
