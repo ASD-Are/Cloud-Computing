@@ -63,7 +63,7 @@ chmod 0600 ~/.ssh/authorized_keys
 
 # Execution (Testing)
 ### Compilation and Job Submission
-** Step 3: ** Compile Java Code:
+**Step 3:** Compile Java Code:
 ```sh
 # Navigate to directory containing Java source files
 javac -classpath $(~/hadoop-3.4.0/bin/hadoop classpath) *.java
@@ -72,7 +72,7 @@ Create JAR File:
 ```sh
 jar cf inverted-index.jar *.class
 ```
-** Step 5: ** Copy files to Hadoop cluster and run job
+**Step 4:** Copy files to Hadoop cluster and run job
 ```sh
 # Navigate to Hadoop home directory
 cd ~/hadoop-3.4.0
