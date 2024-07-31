@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bookshelf-config
+data:
+  MONGO_URL: 34.71.187.5
+  MONGO_DATABASE: studentdb
